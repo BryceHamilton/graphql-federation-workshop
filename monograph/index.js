@@ -1,19 +1,30 @@
 const { ApolloServer, gql } = require('apollo-server');
-const { buildFederatedSchema } = require('@apollo/subgraph');
+const {
+  ApolloServerPluginLandingPageGraphQLPlayground
+} = require('apollo-server-core');
+
 const { readFileSync } = require('fs');
 
-const PackagesApi = require('./datasources/PackagesApi');
-const ActivitiesApi = require('./datasources/ActivitiesApi');
-const HotelsApi = require('./datasources/HotelsApi');
+const ActivitiesApi = require('./datasources//activities/ActivitiesApi');
+const PackagesApi = require('./datasources/packages/PackagesApi');
+const HotelsApi = require('./datasources/hotels/HotelsApi');
 
-const typeDefs = gql(
-  readFileSync('./mono_schema.graphql', { encoding: 'utf-8' })
-);
+const schema = readFileSync('./mono_schema.graphql', { encoding: 'utf-8' });
+const typeDefs = gql(schema);
 const resolvers = require('./resolvers');
 
 const port = 4000;
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  dataSources: () => ({
+    activitiesApi: new ActivitiesApi(),
+    packagesApi: new PackagesApi(),
+    hotelsApi: new HotelsApi()
+  }),
+  plugins: [ApolloServerPluginLandingPageGraphQLPlayground()]
+});
 
 server
   .listen({ port })

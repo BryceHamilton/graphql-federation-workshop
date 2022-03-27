@@ -1,49 +1,46 @@
 interface Node {
-        id: ID!
+  id: ID!
 }
- 
+
 type Package implements Node {
-        id: ID!
-        name: String!
-        description: HTML (custom scalar)
-        activities: [Activity!]!
-        image: Image
-        price: Int
-        hasActivity(id: ID!): Boolean!
-        calculateSavings(id: ID!): Int
+  id: ID!
+  name: String!
+  activities: [Activity!]!
+  image: Image
+  price: Int
+  hasActivity(id: ID!): Boolean!
+  calculateSavings(id: ID!): Int
 }
- 
+
+type Query {
+  packages: [Package!]!
+  package(packageId: ID!): Package
+  activities: [Activity!]!
+  activity(activityId: ID!): Activity
+  hotels: [Hotel!]!
+  hotel(hotelId: ID!): Hotel
+}
+
 type Image {
-        id: ID!
+  id: ID!
 }
- 
+
 type Activity implements Node {
-        id: ID!
-        name: String!
-        Schedule: String
-        category: ActivityCategory!
-        price: Int
+  id: ID!
+  name: String!
+  Schedule: String
+  category: ActivityCategory!
+  price: Int
 }
- 
- 
+
 type Hotel implements Node {
-        id: ID!
-        name: String!
-        packages: [Package!]! (paginated)
+  id: ID!
+  name: String!
+  packages: [Package!]!
 }
- 
+
 enum ActivityCategory {
-        LEISURE
-        ADVENTURE
-        CULTURE
-}
- 
-type Mutation {
-        packageDelete(packageId: ID!)
-        packagePublish(packageId: ID!)
-        packageUnpublish(packageId: ID!)
-        packageAddActivities(packageId: ID!, activityIds: [ID!]!)
-        packageRemoveActivities(packageId: ID!, activityIds: [ID!]!)
-        packageCreate(package: PackageInput!)
-        packageUpdate(packageId: ID!, package: PackageInput!)
+  LEISURE
+  ADVENTURE
+  CULTURE
 }
