@@ -3,21 +3,35 @@ const resolvers = {
     activities: (_, __, { dataSources }) => {
       return dataSources.activitiesApi.getActivities();
     },
-    activity: (_, __, { dataSources, id }) => {
-      return dataSources.activitiesApi.getActivity(id);
+    activity: (_, { activityId }, { dataSources }) => {
+      return dataSources.activitiesApi.getActivity(parseInt(activityId));
     },
     packages: (_, __, { dataSources }) => {
-      console.log('getting packages');
-      console.log('dataSources', dataSources);
-      const packages = dataSources.packagesApi.getAllPackages();
-      console.log('packages', packages);
       return dataSources.packagesApi.getAllPackages();
     },
-    package: (_, __, { dataSources, id }) => {
-      return dataSources.packagesApi.getPackage(id);
+    package: (_, { packageId }, { dataSources }) => {
+      return dataSources.packagesApi.getPackage(parseInt(packageId));
     },
-    hotels: (_, __, { dataSources }) => {},
-    hotel: (_, __, { dataSources }) => {}
+    hotels: (_, __, { dataSources }) => {
+      return dataSources.hotelsApi.getAllHotels();
+    },
+    hotel: (_, { hotelId }, { dataSources }) => {
+      return dataSources.hotelsApi.getHotel(parseInt(hotelId));
+    }
+  },
+  Package: {
+    activities(parent, _, { dataSources }) {
+      return dataSources.activitiesApi
+        .getAllActivities()
+        .filter(a => parent.activities.includes(a.id));
+    }
+  },
+  Hotel: {
+    packages(parent, _, { dataSources }) {
+      return dataSources.packagesApi
+        .getAllPackages()
+        .filter(a => parent.packages.includes(a.id));
+    }
   }
 };
 
