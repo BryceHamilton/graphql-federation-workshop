@@ -7,14 +7,14 @@ interface Node {
   id: ID!
 }
 
-type Package implements Node {
+type Package implements Node @key(fields: "id") {
   id: ID!
   name: String!
   price: Int
-  hasActivity(id: ID!): Boolean!
   calculateSavings(id: ID!): Int
 }
 
-extend type Hotel {
+extend type Hotel @key(fields: "id") {
+  id: ID! @external
   packages: [Package!]!
 }

@@ -17,7 +17,7 @@ const server = new ApolloServer({
 });
 
 const port = 4002;
-const subgraphName = 'reviews';
+const subgraphName = 'packages';
 
 server
   .listen({ port })

@@ -7,11 +7,6 @@ const resolvers = {
       return dataSources.packagesApi.getPackage(parseInt(packageId));
     },
   },
-  Package: {
-    __resolveReference({ id }, { dataSources }) {
-      return dataSources.packagesApi.getPackage(id);
-    },
-  },
   Hotel: {
     packages(hotel, __, { dataSources }) {
       return dataSources.packagesApi.getAllPackages((p) =>

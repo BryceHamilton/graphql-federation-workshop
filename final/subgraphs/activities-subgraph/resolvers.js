@@ -7,11 +7,6 @@ const resolvers = {
       return dataSources.activitiesApi.getActivity(parseInt(activityId));
     },
   },
-  Activity: {
-    __resolveReference({ id }, { dataSources }) {
-      return dataSources.activitiesApi.getActivity(id);
-    },
-  },
   Package: {
     activities(package, __, { dataSources }) {
       return dataSources.activitiesApi.getAllActivities((a) =>

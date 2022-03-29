@@ -7,7 +7,7 @@ interface Node {
   id: ID!
 }
 
-type Activity implements Node {
+type Activity implements Node @key(fields: "id") {
   id: ID!
   name: String!
   Schedule: String
@@ -15,7 +15,8 @@ type Activity implements Node {
   category: ActivityCategory!
 }
 
-extend type Package {
+extend type Package @key(fields: "id") {
+  id: ID! @external
   activities: [Activity!]!
   hasActivity(id: ID!): Boolean!
 }
