@@ -1,0 +1,13 @@
+extend type Query {
+  hotels: [Hotel!]!
+  hotel(hotelId: ID!): Hotel
+}
+
+interface Node {
+  id: ID!
+}
+
+type Hotel implements Node {
+  id: ID!
+  name: String!
+}

@@ -1,0 +1,20 @@
+extend type Query {
+  packages: [Package!]!
+  package(packageId: ID!): Package
+}
+
+interface Node {
+  id: ID!
+}
+
+type Package implements Node {
+  id: ID!
+  name: String!
+  price: Int
+  hasActivity(id: ID!): Boolean!
+  calculateSavings(id: ID!): Int
+}
+
+extend type Hotel {
+  packages: [Package!]!
+}

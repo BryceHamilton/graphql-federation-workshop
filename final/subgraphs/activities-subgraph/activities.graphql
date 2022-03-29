@@ -1,0 +1,27 @@
+extend type Query {
+  activities: [Activity!]!
+  activity(activityId: ID!): Activity
+}
+
+interface Node {
+  id: ID!
+}
+
+type Activity implements Node {
+  id: ID!
+  name: String!
+  Schedule: String
+  price: Int
+  category: ActivityCategory!
+}
+
+extend type Package {
+  activities: [Activity!]!
+  hasActivity(id: ID!): Boolean!
+}
+
+enum ActivityCategory {
+  LEISURE
+  ADVENTURE
+  CULTURE
+}

@@ -5,7 +5,7 @@ const { buildSubgraphSchema } = require('@apollo/subgraph');
 const typeDefs = gql(readFileSync('./packages.graphql', { encoding: 'utf-8' }));
 const resolvers = require('./resolvers');
 
-const PackagesApi = require('./datasources/activities/PackagesApi');
+const PackagesApi = require('./datasources/packages/PackagesApi');
 
 const server = new ApolloServer({
   schema: buildSubgraphSchema({ typeDefs, resolvers }),
@@ -16,7 +16,7 @@ const server = new ApolloServer({
   },
 });
 
-const port = 4003;
+const port = 4002;
 const subgraphName = 'reviews';
 
 server
