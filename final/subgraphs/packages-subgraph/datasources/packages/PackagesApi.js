@@ -1,13 +1,13 @@
 const { packages } = require('./packages_data.json');
 
-class PackagesApi {
+const PackagesApi = {
   getAllPackages() {
     return packages;
-  }
+  },
 
-  getPackage(id) {
-    return packages.find(p => p.id === id);
-  }
-}
+  getPackageById(id) {
+    return packages.find((p) => p.id === id);
+  },
+};
 
 module.exports = PackagesApi;

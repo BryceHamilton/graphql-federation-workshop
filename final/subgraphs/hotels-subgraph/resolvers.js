@@ -1,15 +1,17 @@
+const hotelsApi = require('./datasources/hotels/HotelsApi');
+
 const resolvers = {
   Query: {
-    hotels: (_, __, { dataSources }) => {
-      return dataSources.hotelsApi.getAllHotels();
+    hotels: () => {
+      return hotelsApi.getAllHotels();
     },
-    hotel: (_, { hotelId }, { dataSources }) => {
-      return dataSources.hotelsApi.getHotel(parseInt(hotelId));
+    hotel: (_, { hotelId }) => {
+      return hotelsApi.getHotelById(parseInt(hotelId));
     },
   },
   Hotel: {
-    __resolveReference({ id }, { dataSources }) {
-      return dataSources.hotelsApi.getHotel(id);
+    __resolveReference({ id }) {
+      return hotelsApi.getHotelById(id);
     },
   },
 };

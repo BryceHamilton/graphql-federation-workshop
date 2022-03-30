@@ -7,15 +7,8 @@ const typeDefs = gql(
 );
 const resolvers = require('./resolvers');
 
-const ActivitiesApi = require('./datasources/activities/ActivitiesApi');
-
 const server = new ApolloServer({
   schema: buildSubgraphSchema({ typeDefs, resolvers }),
-  dataSources: () => {
-    return {
-      activitiesApi: new ActivitiesApi(),
-    };
-  },
 });
 
 const port = 4001;

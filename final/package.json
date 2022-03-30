@@ -1,0 +1,24 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "concurrently npm:install:*",
+    "install:gateway": "cd gateway && npm install",
+    "install:activities": "cd subgraphs/activities-subgraph && npm install",
+    "install:packages": "cd subgraphs/packages-subgraph && npm install",
+    "install:hotels": "cd subgraphs/hotels-subgraph && npm install",
+    "start": "concurrently -k npm:start:*",
+    "start:gateway": "cd gateway && npm start",
+    "start:activities": "cd subgraphs/activities-subgraph && npm start",
+    "start:packages": "cd subgraphs/packages-subgraph && npm start",
+    "start:hotels": "cd subgraphs/hotels-subgraph && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}

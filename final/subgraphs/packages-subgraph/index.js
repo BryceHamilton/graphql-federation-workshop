@@ -5,15 +5,8 @@ const { buildSubgraphSchema } = require('@apollo/subgraph');
 const typeDefs = gql(readFileSync('./packages.graphql', { encoding: 'utf-8' }));
 const resolvers = require('./resolvers');
 
-const PackagesApi = require('./datasources/packages/PackagesApi');
-
 const server = new ApolloServer({
   schema: buildSubgraphSchema({ typeDefs, resolvers }),
-  dataSources: () => {
-    return {
-      packagesApi: new PackagesApi(),
-    };
-  },
 });
 
 const port = 4002;

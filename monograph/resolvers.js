@@ -1,34 +1,38 @@
+const activitiesApi = require('./datasources//activities/ActivitiesApi');
+const packagesApi = require('./datasources/packages/PackagesApi');
+const hotelsApi = require('./datasources/hotels/HotelsApi');
+
 const resolvers = {
   Query: {
-    activities: (_, __, { dataSources }) => {
-      return dataSources.activitiesApi.getAllActivities();
+    activities: () => {
+      return activitiesApi.getAllActivities();
     },
-    activity: (_, { activityId }, { dataSources }) => {
-      return dataSources.activitiesApi.getActivity(parseInt(activityId));
+    activity: (_, { activityId }) => {
+      return activitiesApi.getActivityById(parseInt(activityId));
     },
-    packages: (_, __, { dataSources }) => {
-      return dataSources.packagesApi.getAllPackages();
+    packages: () => {
+      return packagesApi.getAllPackages();
     },
-    package: (_, { packageId }, { dataSources }) => {
-      return dataSources.packagesApi.getPackage(parseInt(packageId));
+    package: (_, { packageId }) => {
+      return packagesApi.getPackageById(parseInt(packageId));
     },
-    hotels: (_, __, { dataSources }) => {
-      return dataSources.hotelsApi.getAllHotels();
+    hotels: () => {
+      return hotelsApi.getAllHotels();
     },
-    hotel: (_, { hotelId }, { dataSources }) => {
-      return dataSources.hotelsApi.getHotel(parseInt(hotelId));
+    hotel: (_, { hotelId }) => {
+      return hotelsApi.getHotelById(parseInt(hotelId));
     },
   },
   Package: {
-    activities(parent, _, { dataSources }) {
-      return dataSources.activitiesApi
+    activities(parent, _) {
+      return activitiesApi
         .getAllActivities()
         .filter((a) => parent.activities.includes(a.id));
     },
   },
   Hotel: {
-    packages(parent, _, { dataSources }) {
-      return dataSources.packagesApi
+    packages(parent) {
+      return packagesApi
         .getAllPackages()
         .filter((a) => parent.packages.includes(a.id));
     },

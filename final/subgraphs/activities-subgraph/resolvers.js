@@ -1,15 +1,17 @@
+const activitiesApi = require('./datasources//activities/ActivitiesApi');
+
 const resolvers = {
   Query: {
-    activities: (_, __, { dataSources }) => {
-      return dataSources.activitiesApi.getAllActivities();
+    activities: () => {
+      return activitiesApi.getAllActivities();
     },
-    activity: (_, { activityId }, { dataSources }) => {
-      return dataSources.activitiesApi.getActivity(parseInt(activityId));
+    activity: (_, { activityId }) => {
+      return activitiesApi.getActivityById(parseInt(activityId));
     },
   },
   Package: {
-    activities(package, __, { dataSources }) {
-      return dataSources.activitiesApi.getAllActivities((a) =>
+    activities(package) {
+      return activitiesApi.getAllActivities((a) =>
         package.activities.contains(a.id),
       );
     },

@@ -1,17 +1,17 @@
+const packagesApi = require('./datasources/packages/PackagesApi');
+
 const resolvers = {
   Query: {
-    packages: (_, __, { dataSources }) => {
-      return dataSources.packagesApi.getAllPackages();
+    packages: () => {
+      return packagesApi.getAllPackages();
     },
-    package: (_, { packageId }, { dataSources }) => {
-      return dataSources.packagesApi.getPackage(parseInt(packageId));
+    package: (_, { packageId }) => {
+      return packagesApi.getPackageById(parseInt(packageId));
     },
   },
   Hotel: {
-    packages(hotel, __, { dataSources }) {
-      return dataSources.packagesApi.getAllPackages((p) =>
-        hotel.packages.contains(p.id),
-      );
+    packages(hotel) {
+      return packagesApi.getAllPackages((p) => hotel.packages.contains(p.id));
     },
   },
 };
