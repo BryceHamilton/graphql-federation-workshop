@@ -24,7 +24,7 @@ const resolvers = {
     },
   },
   Package: {
-    activities(parent, _) {
+    activities(parent) {
       return activitiesApi
         .getAllActivities()
         .filter((a) => parent.activities.includes(a.id));
