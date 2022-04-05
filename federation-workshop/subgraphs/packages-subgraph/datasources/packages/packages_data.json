@@ -5,21 +5,24 @@
       "name": "Old Port",
       "description": "See the Old Port of Montreal",
       "activities": [1, 4],
-      "price": 30
+      "price": 30,
+      "hotelIds": [1, 2]
     },
     {
       "id": 2,
       "name": "Drinks after a Bike Ride",
       "description": "Pub crawl after a bike ride",
       "activities": [2, 6],
-      "price": 30
+      "price": 30,
+      "hotelIds": [2, 3]
     },
     {
       "id": 3,
       "name": "Explore Plateau Mont Royal",
       "description": "Bike ride, motor coach, mural tour",
       "activities": [2, 3, 5],
-      "price": 30
+      "price": 30,
+      "hotelIds": [3]
     }
   ]
 }

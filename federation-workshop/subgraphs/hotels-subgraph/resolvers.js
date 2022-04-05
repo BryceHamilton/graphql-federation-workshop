@@ -6,7 +6,7 @@ const resolvers = {
       return hotelsApi.getAllHotels();
     },
     hotel: (_, { hotelId }) => {
-      return hotelsApi.getHotelById(parseInt(hotelId));
+      return hotelsApi.getHotelById(hotelId);
     },
   },
   Hotel: {

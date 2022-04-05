@@ -10,15 +10,16 @@
     "install:packages": "cd subgraphs/packages-subgraph && npm install",
     "install:hotels": "cd subgraphs/hotels-subgraph && npm install",
     "start": "concurrently -k npm:start:*",
-    "start:gateway": "cd gateway && npm start",
     "start:activities": "cd subgraphs/activities-subgraph && npm start",
     "start:packages": "cd subgraphs/packages-subgraph && npm start",
-    "start:hotels": "cd subgraphs/hotels-subgraph && npm start"
+    "start:hotels": "cd subgraphs/hotels-subgraph && npm start",
+    "gateway": "nodemon ./gateway/index.js -e js,graphql"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
   }
 }
