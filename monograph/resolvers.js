@@ -8,33 +8,33 @@ const resolvers = {
       return activitiesApi.getAllActivities();
     },
     activity: (_, { activityId }) => {
-      return activitiesApi.getActivityById(parseInt(activityId));
+      return activitiesApi.getActivityById(activityId);
     },
     packages: () => {
       return packagesApi.getAllPackages();
     },
     package: (_, { packageId }) => {
-      return packagesApi.getPackageById(parseInt(packageId));
+      return packagesApi.getPackageById(packageId);
     },
     hotels: () => {
       return hotelsApi.getAllHotels();
     },
     hotel: (_, { hotelId }) => {
-      return hotelsApi.getHotelById(parseInt(hotelId));
+      return hotelsApi.getHotelById(hotelId);
     },
   },
   Package: {
-    activities(parent) {
+    activities(package) {
       return activitiesApi
         .getAllActivities()
-        .filter((a) => parent.activities.includes(a.id));
+        .filter((a) => package.activities.includes(a.id));
     },
   },
   Hotel: {
-    packages(parent) {
+    packages(hotel) {
       return packagesApi
         .getAllPackages()
-        .filter((a) => parent.packages.includes(a.id));
+        .filter((a) => hotel.packages.includes(a.id));
     },
   },
 };
