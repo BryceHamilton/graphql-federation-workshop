@@ -1,24 +1,14 @@
 extend type Query {
-  activities: [Activity!]!
-  activity(activityId: ID!): Activity
+  """
+  -- add queries here --
+  -- check the monograph for a hint --
+  """
 }
 
-interface Node {
-  id: ID!
-}
+"""
+-- will need a couple of types here --
+"""
 
-type Activity implements Node @key(fields: "id") {
-  id: ID!
-  name: String!
-  Schedule: String
-  price: Int
-  category: ActivityCategory!
-}
-
-extend type Package @key(fields: "id") {
-  id: ID! @external
-  hasActivity(id: ID!): Boolean!
-}
 
 enum ActivityCategory {
   LEISURE

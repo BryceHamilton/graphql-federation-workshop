@@ -27,7 +27,7 @@ const resolvers = {
 
 const logPackageActivities = (package) => {
   console.log(`\n🪃  FETCH activity references (package ${package.id})`);
-  console.log(`➡️  ${package.activities}\n`);
+  console.log(`➡️  ${package.activities} 🤸  \n`);
 };
 
 module.exports = resolvers;

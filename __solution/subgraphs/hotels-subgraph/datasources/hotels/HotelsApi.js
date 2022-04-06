@@ -4,7 +4,7 @@ const HotelsApi = {
   getAllHotels() {
     console.log('\n', '🪃  FETCH hotels');
     const ids = hotels.map((h) => h.id);
-    console.log('\n', '➡️ ', ids);
+    console.log('\n', '➡️ ', ids, '🏨');
     return hotels;
   },
 

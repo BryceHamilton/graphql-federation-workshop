@@ -14,7 +14,7 @@ const PackagesApi = {
     const id = parseInt(hotelId);
     const hotelPackages = packages.filter((p) => p.hotelIds.includes(id));
     const packageIds = hotelPackages.map((p) => p.id);
-    console.log('➡️ ', packageIds, '\n');
+    console.log('➡️ ', packageIds, '📦', '\n');
     return hotelPackages;
   },
 };

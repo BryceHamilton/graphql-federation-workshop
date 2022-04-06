@@ -11,8 +11,8 @@ const ActivitiesApi = {
   },
 };
 
-const log = (activity) => {
-  console.log('resolving activity', activity.id);
+const log = (id) => {
+  console.log('resolving activity', id);
 };
 
 module.exports = ActivitiesApi;

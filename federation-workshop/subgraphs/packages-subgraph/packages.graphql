@@ -1,25 +1,10 @@
 extend type Query {
-  packages: [Package!]!
-  package(packageId: ID!): Package
+  """
+  -- add queries here --
+  -- check the monograph for a hint --
+  """
 }
 
-interface Node {
-  id: ID!
-}
-
-extend type Activity @key(fields: "id") {
-  id: ID! @external
-}
-
-type Package implements Node @key(fields: "id") {
-  id: ID!
-  name: String!
-  price: Int
-  calculateSavings(id: ID!): Int
-  activities: [Activity!]!
-}
-
-extend type Hotel @key(fields: "id") {
-  id: ID! @external
-  packages: [Package!]!
-}
+"""
+-- a lot of types here! --
+"""

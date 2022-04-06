@@ -1,6 +1,7 @@
 extend type Query {
   """
   -- add queries here --
+  -- check the monograph for a hint --
   """
 }
 
