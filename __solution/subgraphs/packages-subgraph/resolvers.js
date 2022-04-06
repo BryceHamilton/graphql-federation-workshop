@@ -10,12 +10,8 @@ const resolvers = {
     },
   },
   Package: {
-    __resolveReference(package) {
-      return packagesApi.getPackageById(package.id);
-    },
     activities(package) {
-      console.log(`🪃  FETCH activity references (package ${package.id})`);
-      console.log(`➡️  ${package.activities}`);
+      logPackageActivities(package);
       return packagesApi.getPackageById(package.id).activities.map((id) => ({
         __typename: 'Activity',
         id,
@@ -27,6 +23,11 @@ const resolvers = {
       return packagesApi.getPackagesForHotel(hotel.id);
     },
   },
+};
+
+const logPackageActivities = (package) => {
+  console.log(`\n🪃  FETCH activity references (package ${package.id})`);
+  console.log(`➡️  ${package.activities}\n`);
 };
 
 module.exports = resolvers;

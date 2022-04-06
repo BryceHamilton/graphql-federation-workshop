@@ -10,11 +10,11 @@ const PackagesApi = {
   },
 
   getPackagesForHotel(hotelId) {
-    console.log(`🪃   FETCH packages (hotel ${hotelId})`);
+    console.log('\n', `🪃  FETCH packages (hotel ${hotelId})`);
     const id = parseInt(hotelId);
     const hotelPackages = packages.filter((p) => p.hotelIds.includes(id));
     const packageIds = hotelPackages.map((p) => p.id);
-    console.log('➡️ ', packageIds);
+    console.log('➡️ ', packageIds, '\n');
     return hotelPackages;
   },
 };

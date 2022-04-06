@@ -8,7 +8,7 @@ const typeDefs = gql(
 const resolvers = require('./resolvers');
 
 const server = new ApolloServer({
-  schema: buildSubgraphSchema({ typeDefs, resolvers }),
+  // ...
 });
 
 const port = 4001;

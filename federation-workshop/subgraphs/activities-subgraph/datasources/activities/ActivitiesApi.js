@@ -6,7 +6,7 @@ const ActivitiesApi = {
   },
 
   getActivityById(id) {
-    return activities.find((a) => a.id === id);
+    return activities.find((a) => a.id == id);
   },
 };
 

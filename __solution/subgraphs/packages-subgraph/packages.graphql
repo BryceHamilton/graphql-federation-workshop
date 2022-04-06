@@ -3,15 +3,7 @@ extend type Query {
   package(packageId: ID!): Package
 }
 
-interface Node {
-  id: ID!
-}
-
-extend type Activity @key(fields: "id") {
-  id: ID! @external
-}
-
-type Package implements Node @key(fields: "id") {
+type Package @key(fields: "id") {
   id: ID!
   name: String!
   price: Int
@@ -22,4 +14,8 @@ type Package implements Node @key(fields: "id") {
 extend type Hotel @key(fields: "id") {
   id: ID! @external
   packages: [Package!]!
+}
+
+extend type Activity @key(fields: "id") {
+  id: ID! @external
 }

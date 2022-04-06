@@ -1,13 +1,9 @@
 extend type Query {
-  hotels: [Hotel!]!
-  hotel(hotelId: ID!): Hotel
+  """
+  -- add queries here --
+  """
 }
 
-interface Node {
-  id: ID!
-}
-
-type Hotel implements Node @key(fields: "id") {
-  id: ID!
-  name: String!
-}
+"""
+-- maybe a type would help? --
+"""

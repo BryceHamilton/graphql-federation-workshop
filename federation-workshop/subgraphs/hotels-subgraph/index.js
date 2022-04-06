@@ -6,7 +6,7 @@ const typeDefs = gql(readFileSync('./hotels.graphql', { encoding: 'utf-8' }));
 const resolvers = require('./resolvers');
 
 const server = new ApolloServer({
-  schema: buildSubgraphSchema({ typeDefs, resolvers }),
+  // ...
 });
 
 const port = 4003;

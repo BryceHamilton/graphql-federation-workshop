@@ -3,11 +3,7 @@ extend type Query {
   hotel(hotelId: ID!): Hotel
 }
 
-interface Node {
-  id: ID!
-}
-
-type Hotel implements Node @key(fields: "id") {
+type Hotel @key(fields: "id") {
   id: ID!
   name: String!
 }

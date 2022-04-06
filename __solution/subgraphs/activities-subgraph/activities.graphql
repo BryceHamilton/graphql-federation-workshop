@@ -3,11 +3,13 @@ extend type Query {
   activity(activityId: ID!): Activity
 }
 
-interface Node {
-  id: ID!
+enum ActivityCategory {
+  LEISURE
+  ADVENTURE
+  CULTURE
 }
 
-type Activity implements Node @key(fields: "id") {
+type Activity @key(fields: "id") {
   id: ID!
   name: String!
   Schedule: String
@@ -18,10 +20,4 @@ type Activity implements Node @key(fields: "id") {
 extend type Package @key(fields: "id") {
   id: ID! @external
   hasActivity(id: ID!): Boolean!
-}
-
-enum ActivityCategory {
-  LEISURE
-  ADVENTURE
-  CULTURE
 }
