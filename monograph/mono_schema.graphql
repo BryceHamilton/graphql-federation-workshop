@@ -1,12 +1,3 @@
-type Package {
-  id: ID!
-  name: String!
-  activities: [Activity!]!
-  price: Int
-  hasActivity(id: ID!): Boolean!
-  calculateSavings(id: ID!): Int
-}
-
 type Query {
   packages: [Package!]!
   package(packageId: ID!): Package
@@ -14,6 +5,15 @@ type Query {
   activity(activityId: ID!): Activity
   hotels: [Hotel!]!
   hotel(hotelId: ID!): Hotel
+}
+
+type Package {
+  id: ID!
+  name: String!
+  activities: [Activity!]!
+  price: Int
+  hasActivity(id: ID!): Boolean!
+  calculateSavings(id: ID!): Int
 }
 
 type Activity {

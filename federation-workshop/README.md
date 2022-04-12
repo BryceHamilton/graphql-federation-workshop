@@ -1,6 +1,6 @@
 ## 1 - Subgraphs
 
-### 🏃 Get the subgraphs up and running
+### 1.1 🏃 Get the subgraphs up and running
 
 - Check `index.js` of each subgraph and modify to make sure they can start properly
 
@@ -16,7 +16,7 @@ Edit and add to:
 [start:*packages] 🚀 --> http://localhost:4002
 [start:*activities] 🚀 --> http://localhost:4001
 
-### ✏️ Write those schemas!
+### 1.2 ✏️ Write those schemas!
 
 Start with the relevant entities and queries.
 
@@ -26,7 +26,7 @@ Edit and add to:
 - `/packages-subgraph/packages.graphql`
 - `/hotels-subgraph/hotels.graphql`
 
-### 💪 Last but not least, we'll need resolvers
+### 1.3 💪 Last but not least, we'll need resolvers
 
 Write resolvers for the queries.
 
@@ -42,7 +42,7 @@ run `npm start` from the `federation-workshop` directory.
 
 ## 2 - Subgraphs, part 2 (extending Entities)
 
-### 📝 Add to the schemas
+### 2.1 📝 Add to the schemas
 
 Extend the Entities (with new fields) in the subgraphs that will resolve those new fields
 
@@ -52,7 +52,7 @@ Edit and add to:
 - `/packages-subgraph/packages.graphql`
 - `/hotels-subgraph/hotels.graphql`
 
-### 💪 ...and the resolvers!
+### 2.2 💪 ...and the resolvers!
 
 Write resolvers for the fields.
 

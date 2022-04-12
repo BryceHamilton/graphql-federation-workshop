@@ -1,6 +1,7 @@
 const activitiesApi = require('./datasources/activities/ActivitiesApi');
 
 const resolvers = {
+  /* Part 1 */
   Query: {
     activities: () => {
       // ...
@@ -9,6 +10,8 @@ const resolvers = {
       // ...
     },
   },
+
+  /* Part 2 */
   Activity: {
     __resolveReference(activity) {
       console.log('resolving activity', activity.id);

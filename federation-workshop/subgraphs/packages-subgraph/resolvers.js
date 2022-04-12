@@ -1,25 +1,25 @@
 const packagesApi = require('./datasources/packages/PackagesApi');
 
 const resolvers = {
+  /* Part 1 */
   Query: {
     packages: () => {
-      // ..
+      // ...
     },
     package: (_, { packageId }) => {
-      // ..
+      // ...
     },
   },
+
+  /* Part 2 */
   Package: {
-    __resolveReference(package) {
-      // ..
-    },
     activities(package) {
-      // ..
+      // ...
     },
   },
   Hotel: {
     packages(hotel) {
-      // ..
+      // ...
     },
   },
 };
